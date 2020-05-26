@@ -1,0 +1,33 @@
+version: '3'
+services:
+   backend:
+      build: ./node-express/
+      container_name: app_backend
+      depends_on:
+         - mongo
+      networks:
+         - application
+         - database
+      ports:
+         - "8199:3000"
+      links:
+         - mongo
+   mongo:
+      ports:
+         - "27017:27017"
+   frontend:
+      ports:
+         - "8081:4100"
+      environment:
+         - API_ROOT=http://35.240.166.235:8199/api
+networks:
+   application:
+      ipam:
+         driver: default
+         config:
+            - subnet: 172.27.8.0/25
+   database:
+      ipam:
+         driver: default
+         config:
+            - subnet: 172.27.8.128/26

@@ -1,0 +1,27 @@
+version: '3'
+services:
+   backend:
+      build: ./node-express/
+      container_name: app_backend
+      depends_on:
+         - mongo
+      networks:
+         - application
+         - database
+      links:
+         - mongo
+   mongo:
+      image: mongo
+      container_name: mongo
+      networks:
+         - database
+   frontend:
+      build: ./react-redux/
+      container_name: app_frontend
+      depends_on:
+         - backend
+      networks:
+         - application
+networks:
+   application:
+   database:
