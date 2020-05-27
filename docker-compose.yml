@@ -8,8 +8,6 @@ services:
       networks:
          - application
          - database
-      links:
-         - mongo
    mongo:
       image: mongo
       container_name: mongo
