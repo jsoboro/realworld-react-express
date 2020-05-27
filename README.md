@@ -15,7 +15,7 @@
    - Backend: [Node/Express](https://github.com/gothinkster/node-express-realworld-example-app)
 
 * Article History API 추가
-  * Backend API 추가를 위해 아래 작업을 진행했습니다. 
+   - Backend API 추가를 위해 아래 작업을 진행했습니다. 
    - mongoose model 추가: 
      - ./node-express/models/History.js 
      - find().sort() 를 위해 mongoose-auto-increment 추가 사용
