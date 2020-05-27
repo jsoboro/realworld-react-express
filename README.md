@@ -48,25 +48,23 @@
      - ./node-express/Dockerfile 
      - ./react-redux/Dockerfile 
    - 상기 Dockerfile을 아래처럼 docker-compose 스크립트 내에 build path 지정하였습니다. 
-   
-```
-services:
-   backend:
-      build: ./node-express/
-   frontend:
-      build: ./react-redux/      
-```
+   ```
+   services:
+      backend:
+         build: ./node-express/
+      frontend:
+         build: ./react-redux/      
+   ```
 
 * Docker 네트워크 대역 구분
    - application 과 database 의 네트워크 대역 구분을 위해 아래와 같이 docker-compose.yml > networks 부분에 별도 명시하였습니다. 
    - docker-compose.dev.yml 와 docker-compose.prod.yml networks 부분에는 각기 subnet 항목 지정하였습니다. 
-
-```
-### docker-compose.yml ###
-networks:
-   application:
-   database:
-```
+   ```
+   ### docker-compose.yml ###
+   networks:
+      application:
+      database:
+   ```
 
 * **docker-compose 실행 방법**
    - dev 환경
