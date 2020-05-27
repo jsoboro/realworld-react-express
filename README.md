@@ -43,7 +43,7 @@
    });
    ```
 
-* Containerized 방법
+* **Containerized 방법**
    - Dockerfile 작성을 통한 Docker build 방식을 기본으로 하였으며, 아래 빌드 스크립트를 참조하시기 바랍니다. 
      - ./node-express/Dockerfile 
      - ./react-redux/Dockerfile 
@@ -68,7 +68,7 @@ networks:
    database:
 ```
 
-* docker-compose 실행 방법
+* **docker-compose 실행 방법**
    - dev 환경
    ```
    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
