@@ -44,7 +44,9 @@
    ```
 
 * Containerized 방법
-   - Dockerfile 작성을 통해 Docker build 방식을 기본으로 하였으며, ./node-express/Dockerfile 과 ./react-redux/Dockerfile 를 참조하십시오. 
+   - Dockerfile 작성을 통한 Docker build 방식을 기본으로 하였으며, 아래 빌드 스크립트를 참조하시기 바랍니다. 
+     - ./node-express/Dockerfile 
+     - ./react-redux/Dockerfile 
    - 상기 Dockerfile을 아래처럼 docker-compose 스크립트 내에 build path 지정하였습니다. 
    
 ```
