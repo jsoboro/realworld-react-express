@@ -20,8 +20,9 @@
      - ./node-express/models/History.js 
      - find().sort() 를 위해 mongoose-auto-increment 추가 사용
    - history data insert 추가: 
-     - ./node-express/routes/api/article.js 내에, article 생성(router.post('/', ..) 및 수정(router.put('/:article', ..) 부분에 아래 코드 추가
+     - ./node-express/routes/api/article.js 내에, article 생성(router.post('/', ..) 및 수정(router.put('/:article', ..) 시점에 아래 코드 추가
    ```
+   ### /node-express/routes/api/article.js ###
       req.article.save().then(function(article){
         var history = new History();
         history.article = article;
@@ -32,6 +33,7 @@
    ```
    - 마지막으로 /:article/histories 에 대한 GET 메소드 추가
    ```
+   ### /node-express/routes/api/article.js ###
    router.get('/:article/histories', auth.optional, function(req, res, next){
      History.find({ 'article.slug': req.article.slug}).sort({'_id': 1}).then(function(histories){
        return res.json({
@@ -49,6 +51,7 @@
      - ./react-redux/Dockerfile 
    - 상기 Dockerfile을 아래처럼 docker-compose 스크립트 내에 build path 지정하였습니다. 
    ```
+   ### docker-compose.yml ###
    services:
       backend:
          build: ./node-express/
