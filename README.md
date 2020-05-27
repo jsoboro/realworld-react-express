@@ -21,7 +21,7 @@
      - find().sort() 를 위해 mongoose-auto-increment 추가 사용
    - history data insert 추가: 
      - ./node-express/routes/api/article.js 내에, article 생성(router.post('/', ..) 및 수정(router.put('/:article', ..) 부분에 아래 코드 추가
-```
+   ```
       req.article.save().then(function(article){
         var history = new History();
         history.article = article;
@@ -29,19 +29,19 @@
           return res.json({article: article.toJSONFor(user)});
         });
       }).catch(next);
-```
+   ```
    - 마지막으로 /:article/histories 에 대한 GET 메소드 추가
-```
-router.get('/:article/histories', auth.optional, function(req, res, next){
-  History.find({ 'article.slug': req.article.slug}).sort({'_id': 1}).then(function(histories){
-    return res.json({
-      histories: histories.map(function(history){
-        return history.toJSONFor();
-      })
-    });
-  }).catch(next);
-});
-```
+   ```
+   router.get('/:article/histories', auth.optional, function(req, res, next){
+     History.find({ 'article.slug': req.article.slug}).sort({'_id': 1}).then(function(histories){
+       return res.json({
+         histories: histories.map(function(history){
+           return history.toJSONFor();
+         })
+       });
+     }).catch(next);
+   });
+   ```
 
 * Containerized 방법
    - Dockerfile 작성을 통해 Docker build 방식을 기본으로 하였으며, ./node-express/Dockerfile 과 ./react-redux/Dockerfile 를 참조하십시오. 
