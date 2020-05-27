@@ -67,6 +67,7 @@
    ```
 
 * **docker-compose 실행 방법**
+   - docker-compose.yml 을 기본 베이스로 하고, 각 환경에 따른 서비스 포트 및 환경 변수, 네트워크 등을 상세 yaml 파일에 정의. 
    - dev 환경
    ```
    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
